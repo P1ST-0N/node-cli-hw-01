@@ -11,7 +11,7 @@ export const createTask = async (req, res) => {
 };
 
 export const getTasks = controllerDecoration(async (req, res, next) => {
-  const tasks = JSON.parse(await fs.readFile("", { encoding: "utf-8" }));
+  const tasks = JSON.parse(await fs.readFile(tasksPath, { encoding: "utf-8" }));
 
   if (!tasks.length) {
     throw httpError(404, "tasks not found");
